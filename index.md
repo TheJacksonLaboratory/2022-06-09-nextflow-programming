@@ -10,7 +10,7 @@ language: "en"     # lowercase two-letter ISO language code such as "fr" (see ht
 latitude: "44.365673"        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "-68.197030"       # decimal longitude of the workshop venue (use https://www.latlong.net)
 humandate: "June 09, 16, 23 and 30, 2022"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
-humantime: "1 - 4pm EDT (5 - 9pm UTC)"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
+humantime: "1 - 4pm EDT"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
 startdate: 2022-06-09      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2022-06-30        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["Mitch Kostich", "Olaitan Awe"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
@@ -34,24 +34,7 @@ And run 'make workshop-check' *before* committing to make sure that changes are 
 
 {% comment %}
 8< ============= For a workshop delete from here =============
-For a workshop please delete the following block until the next dashed-line
 {% endcomment %}
-
-
-<div class="alert alert-danger">
-This is the workshop template. Delete these lines and use it to
-<a href="https://carpentries.github.io/workshop-template/customization/index.html">customize</a>
-your own website. If you are running a self-organized workshop or have not put
-in a workshop request yet, please also fill in
-<a href="{{site.amy_site}}/forms/self-organised/">this workshop request form</a>
-to let us know about your workshop and our administrator may contact you if we
-need any extra information.
-If this is a pilot workshop for a new lesson,
-set the `pilot` field to `true` in `_config.yml`.
-For workshops teaching a lesson in The Carpentries Incubator,
-remember to uncomment the `incubator_lesson_site`, `incubator_pre_survey`, and `incubator_post_survey`
-fields in `_config.yml`
-</div>
 
 {% comment %}
 8< ============================= until here ==================
@@ -115,6 +98,8 @@ the pitch.
 {% include swc/intro.html %}
 {% elsif site.carpentry == "dc" %}
 {% include dc/intro.html %}
+{% elsif site.carpentry == "none" %}
+{% include none/intro.html %}
 {% elsif site.carpentry == "lc" %}
 {% include lc/intro.html %}
 {% endif %}
@@ -133,6 +118,8 @@ workshop is only open to people from a particular institution.
 {% include swc/who.html %}
 {% elsif site.carpentry == "dc" %}
 {% include dc/who.html %}
+{% elsif site.carpentry == "none" %}
+{% include none/who.html %}
 {% elsif site.carpentry == "lc" %}
 {% include lc/who.html %}
 {% endif %}
@@ -294,42 +281,6 @@ Edit the text to match who can attend the workshop. For instance:
 {% comment%}
 CODE OF CONDUCT
 {% endcomment %}
-<h2 id="code-of-conduct">Code of Conduct</h2>
-
-<p>
-Everyone who participates in Carpentries activities is required to conform to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html">Code of Conduct</a>. This document also outlines how to report an incident if needed.
-</p>
-
-<p class="text-center">
-  <a href="https://goo.gl/forms/KoUfO53Za3apOuOK2">
-    <button type="button" class="btn btn-info">Report a Code of Conduct Incident</button>
-  </a>
-</p>
-<hr/>
-
-
-{% comment %}
-Collaborative Notes
-
-If you want to use an Etherpad, go to
-
-https://pad.carpentries.org/YYYY-MM-DD-site
-
-where 'YYYY-MM-DD-site' is the identifier for your workshop,
-e.g., '2015-06-10-esu'.
-
-Note we also have a CodiMD (the open-source version of HackMD)
-available at https://codimd.carpentries.org
-{% endcomment %}
-{% if page.collaborative_notes %}
-<h2 id="collaborative_notes">Collaborative Notes</h2>
-
-<p>
-We will use this <a href="{{ page.collaborative_notes }}">collaborative document</a> for chatting, taking notes, and sharing URLs and bits of code.
-</p>
-<hr/>
-{% endif %}
-
 
 {% comment %}
 SURVEYS - DO NOT EDIT SURVEY LINKS
@@ -384,6 +335,8 @@ of code below the Schedule `<h2>` header below with
 {% include swc/schedule.html %}
 {% elsif site.carpentry == "dc" %}
 {% include dc/schedule.html %}
+{% elsif site.carpentry == "none" %}
+{% include none/schedule.html %}
 {% elsif site.carpentry == "lc" %}
 {% include lc/schedule.html %}
 {% elsif site.carpentry == "incubator" %}
@@ -424,6 +377,8 @@ please preview your site before committing, and make sure to run
   Software Carpentry
   {% elsif site.carpentry == "dc" %}
   Data Carpentry
+  {% elsif site.carpentry == "none" %}
+  Carpentry
   {% elsif site.carpentry == "lc" %}
   Library Carpentry
   {% endif %}
@@ -460,6 +415,8 @@ during the workshop.
 {% include swc/setup.html %}
 {% elsif site.carpentry == "dc" %}
 {% include dc/setup.html %}
+{% elsif site.carpentry == "none" %}
+{% include none/setup.html %}
 {% elsif site.carpentry == "lc" %}
 {% include lc/setup.html %}
 {% elsif site.carpentry == "incubator" %}
