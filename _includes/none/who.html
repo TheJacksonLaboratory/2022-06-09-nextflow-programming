@@ -6,3 +6,18 @@ structure/compartmentalization, ability to resume failed jobs,
 and portability across a range of run-time environments (e.g. localhost, SLURM, GCP, AWS, Kubernetes). 
 If you only want to learn how to run existing Nextflow pipelines, 
 CS offers another class demonstrating configuration and use of existing pipelines.
+
+In this class, we will use the Nextflow programming language to develop a simple bioinformatics pipeline. 
+We gradually build up a bulk RNA-seq data analysis pipeline, 
+beginning with a 'Hello world!' script. 
+We work up to a final pipeline which takes gzip compressed FASTQ cDNA sequencing reads, 
+decompresses them, generates quality-control reports for each sequence file using FASTQC, 
+maps the reads to an annotated genome using STAR, 
+then generates an expression matrix from the mappings using featureCounts. 
+Such an expression matrix is suitable for import into R and subsequent statistical analysis using programs such as edgeR or DESeq2. 
+
+We will use the Nextflow DSL2 syntax, which makes it easier to write well-structured modular code. 
+We assume ability to login to the JAX Sumner cluster, familiarity with bash, 
+and basic understanding of one scripting or programming language (e.g. Python, Java, R, bash scripting etc.). 
+Nextflow is based on the Groovy programming language. 
+Groovy is derived from Java but is easier to use because of its more relaxed syntax.
