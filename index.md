@@ -184,6 +184,7 @@ Modify the block below if there are any special requirements.
 <p id="requirements">
   <strong>Requirements:</strong>
   {% if online == "false" %}
+  We assume ability to login to the JAX Sumner cluster, familiarity with bash, and basic understanding of one scripting or programming language (e.g. Python, Java, R, bash scripting etc.).
     Participants must bring a laptop with a
     Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on.
   {% else %}
